@@ -1,0 +1,17 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoHotkey",
+		"GotoDocumentation",
+		"Package Control",
+		"PHP Companion",
+		"PHP Modern",
+		"PHP Syntax Checker",
+		"PowerShell",
+		"RemoteSubl"
+	]
+}

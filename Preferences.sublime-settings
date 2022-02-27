@@ -1,0 +1,114 @@
+{
+	"added_words":
+	[
+		"counterfactuals",
+		"metadata",
+		"cognitivism",
+		"cognitivist",
+		"Lasch",
+		"Fukuyama",
+		"millennia",
+		"Schwitzgebel",
+		"personhood",
+		"inchoately",
+		"Sadducees",
+		"Girard",
+		"Ellul",
+		"physicalism",
+		"prescind",
+		"Manichæism",
+		"Manichaeism",
+		"Schleiermacher",
+		"Theaetetus",
+		"gauge",
+		"gauging",
+		"Lamarckian",
+		"Pigliucci",
+		"Irenaeus",
+		"blog",
+		"Breuer",
+		"Breuer's",
+		"delegitimation",
+		"Ricoeur",
+		"apophatic",
+		"Philemon",
+		"Parmenides",
+		"epiphenomenalism",
+		"atomism",
+		"nominalism",
+		"Rahab",
+		"serotonin",
+		"meme",
+		"Thessalonians",
+		"worldview",
+		"ressentiment",
+		"Rehoboam",
+		"counterfactual",
+		"Schrödinger",
+		"Plantinga",
+		"nonequilibrium",
+		"mitochondria",
+		"Foundationalism",
+		"compatibilism",
+		"externality",
+		"accelerant",
+		"incentivizes",
+		"normativity",
+		"cronyism",
+		"Feuerbach",
+		"Israelites",
+		"precession",
+		"unfalsifiable",
+		"legitimation",
+		"apologetics",
+		"hermeneutical",
+		"stoichiometry",
+		"processual",
+		"theodicy",
+		"homunculus",
+		"percept",
+		"percepts",
+	],
+	"auto_match_enabled": false,
+	/*"font_size": 9,*/
+	"ignored_packages":
+	[
+		"ActionScript",
+		"AppleScript",
+		"Clojure",
+		"D",
+		"Go",
+		"Groovy",
+		"Lua",
+		"Objective-C",
+		"Pascal",
+		"PHP",
+		"Rails",
+		"Rust",
+		"Scala",
+		"TCL",
+		"Textile",
+		"Vintage"
+	],
+	"theme": "Default.sublime-theme",
+	/*"font_size": 9,*/
+	"ignored_words":
+	[
+		"synecdoche"
+	],
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 48,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 18,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	/*"font_size": 9,*/
+	"font_size": 9,
+}

@@ -1,0 +1,47 @@
+[
+	{ 
+		"keys": ["ctrl+shift+h"], "command": "insert_hyperlink"
+	},
+	{
+		"keys": ["ctrl+shift+j"], "command": "insert_author_hyperlink"
+	},
+	{
+		"keys": ["ctrl+shift+i"], "command": "surround_italics"
+	},
+	{
+		"keys": ["ctrl+shift+u"], "command": "surround_underline"
+	},
+	{
+		"keys": ["ctrl+shift+b"], "command": "surround_bold"
+	},
+	{
+		"keys": ["ctrl+shift+s"], "command": "surround_strikethrough"
+	},
+	{
+		"keys": ["ctrl+shift+q"], "command": "copy_disqus_quote"
+	},
+	{
+		"keys": ["ctrl+shift+alt+q"], "command": "copy_disqus_quote_block"
+	},
+	{
+		"keys": ["ctrl+shift+alt+r"], "command": "find_reply"
+	},
+	{
+		"keys": ["ctrl+shift+d"], "command": "remove_enclosing_tag"
+	},
+	{
+		"keys": ["ctrl+alt+h"], "command": "surround_highlight"
+	},
+	{
+		"keys": ["ctrl+alt+shift+p"], "command": "surround_para"
+	},
+	{
+		"keys": ["ctrl+m"], "command": "convert_to_markdown"
+	},
+	{
+		"keys": ["ctrl+0"], "command": "reset_font_size"
+	},
+	{
+		"keys": ["ctrl+shift+r"], "command": "reverse_text_html"
+	}	
+]
