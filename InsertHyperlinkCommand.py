@@ -43,7 +43,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         return '{}&nbsp;{}{}'.format(book, self.format_range(ch, start, end, end2), ''.join(extras))
 
     def parse_bible_refs(self, c):
-        m = re.search(r'www\.biblegateway\.com/passage/\?search=([^&]+)|biblehub\.com/(?:text/)?([^/]+)/([0-9]+)-([0-9]+)', urllib.parse.unquote(c))
+        m = re.search(r'^https?://(?:www\.biblegateway\.com/passage/\?search=([^&]+)|biblehub\.com/(?:text/)?([^/]+)/([0-9]+)-([0-9]+))', urllib.parse.unquote(c))
         if not m:
             return
         if m.group(2):
@@ -61,33 +61,64 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         region = self.view.sel()[0]
-        s = self.view.substr(region)
-        c = sublime.get_clipboard()
-        wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', c)
+        sel = self.view.substr(region)
+        clip = sublime.get_clipboard()
+        wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', clip)
+        book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', clip)
+        url_m = re.search(r'^(https?://|#)', clip)
+        url = None
+        get_index = None
+        is_markdown = self.view.syntax() and self.view.syntax().name == 'Markdown'
         
-        if len(s) == 0 and wiki_m:
-            left = "<a href=\"" + c + "\">"
+        if len(sel) == 0 and wiki_m:
+            url = clip
             s = "WP: " + wiki_m.group(1).replace('_', ' ').replace('#', ' § ')#.replace('%27', '\'')
             s = urllib.parse.unquote(s)
-            right = "</a>"
-        elif len(s) == 0 and self.parse_bible_refs(c):
-            left = "<a href=\"" + c + "\">"
-            s = self.parse_bible_refs(c)
-            right = "</a>"
-        elif re.search(r'^(https?://|#)', c):
-            left = "<a href=\"" + c + "\">"
-            right = "</a>"
-        # if I copy a book hyperlink up to the subtitle, it'll be missing a </a>
-        elif re.search(r'^[^<>]*<a href="[^"]+">[^<]+$', c):
-            left = c
-            # swapping these puts the cursor at the end of the line, which is where we want it
-            right = ""
-            s = "</a>"
+        elif len(sel) == 0 and self.parse_bible_refs(clip):
+            url = clip
+            s = self.parse_bible_refs(clip)
+        elif url_m:
+            url = clip
+            s = sel
+        elif len(sel) == 0 and book_m:
+            print(book_m.group(1))
+            s = clip
+            if not book_m.group(1):
+                s = s + "</a>"
+            if is_markdown:
+                s = re.sub(r'<a href=["\']([^"\']+).*?>(.*?)</a>', '[\\2](\\1)', s)
         else:
-            left = "<a href=\""
-            right = "\">" + c + "</a>"
-        self.view.replace(edit, region, left + s + right)
+            # the clipbord does not contain a hyperlink
+            # ignore sel
+            if is_markdown:
+                left = "[" + clip + "]("
+                right = ")"
+                get_index = lambda r: r.end() - len(right)
+            else:
+                left = "<a href=\""
+                right = "\">" + clip + "</a>"
+                get_index = lambda r: r.begin() + len(left)
+
+            s = left + right
+
+        if url:
+            if is_markdown:
+                left = "[" + s
+                right = "](" + url + ")"
+                if len(s) == 0:
+                    get_index = lambda r: r.begin() + len(left)
+            else:
+                left = "<a href=\"" + url + "\">"
+                right = s + "</a>"
+                if len(s) == 0:
+                    get_index = lambda r: r.end() - len(right)
+            s = left + right
+
+        if get_index == None:
+            get_index = lambda r: r.end()
+
+        self.view.replace(edit, region, s)
         region = self.view.sel()[0]
         self.view.sel().clear()
-        idx = region.b if s != "" else region.a + len(left)
+        idx = get_index(region)
         self.view.sel().add(sublime.Region(idx, idx))

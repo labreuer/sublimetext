@@ -68,6 +68,8 @@
 		"homunculus",
 		"percept",
 		"percepts",
+		"thruster",
+		"thrusters",
 	],
 	"auto_match_enabled": false,
 	/*"font_size": 9,*/

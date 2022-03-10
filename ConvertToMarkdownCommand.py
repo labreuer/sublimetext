@@ -20,8 +20,6 @@ class ConvertToMarkdownCommand(sublime_plugin.TextCommand):
         region = self.view.sel()[0]
         s = self.view.substr(region)
 
-        print(self.view.syntax())
-
         if len(s) == 0:
             left_tag = self.find_previous(r'<a [^>]*>')
             if left_tag == None:
@@ -35,7 +33,7 @@ class ConvertToMarkdownCommand(sublime_plugin.TextCommand):
 
         sub = self.view.substr(region)
         sub = re.sub(r'<a href=["\']([^"\']+).*?>(.*?)</a>', '[\\2](\\1)', sub)
-        sub = re.sub(r'<blockquote>(.*?)</blockquote>', '> \\1', sub)
+        sub = re.sub(r'<blockquote>(.*?)</blockquote>', '> \\1', sub, flags=re.DOTALL)
         sub = re.sub(r'<i>(.*?)</i>', '_\\1_', sub)
         sub = re.sub(r'<b>(.*?)</b>', '**\\1**', sub)
         sub = re.sub(r'&nbsp;&nbsp;&nbsp;&nbsp; ?(\d+\.)', '\\1', sub)
