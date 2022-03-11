@@ -5,11 +5,21 @@ class InsertAuthorHyperlinkCommand(sublime_plugin.TextCommand):
         c = sublime.get_clipboard()
         region = self.view.sel()[0]
         s = self.view.substr(region)
-        left = "<a href=\"" + c + "\">"
-        right = "</a>: "
-        if s != "":
-            left = "<blockquote>" + left
-            right = right + s + "</blockquote>"
+
+        is_markdown = self.view.syntax() and self.view.syntax().name == 'Markdown'
+        if is_markdown:
+            left = "["
+            right = "](" + c + "): "
+            if s != "":
+                left = "> " + left
+                right = right + s
+        else:
+            left = "<a href=\"" + c + "\">"
+            right = "</a>: "
+            if s != "":
+                left = "<blockquote>" + left
+                right = right + s + "</blockquote>"
+
         #region = self.view.sel()[0]
         self.view.replace(edit, region, left + right)
         region = self.view.sel()[0]

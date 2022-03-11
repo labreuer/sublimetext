@@ -103,6 +103,8 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
 
         if url:
             if is_markdown:
+                # a [x] b -> [a \[x\] b](url)
+                s = re.sub(r'(?<!\\)([\[\]])', '\\\\\\1', s)
                 left = "[" + s
                 right = "](" + url + ")"
                 if len(s) == 0:
