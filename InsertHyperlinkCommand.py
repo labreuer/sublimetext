@@ -42,6 +42,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             extras = []
         return '{}&nbsp;{}{}'.format(book, self.format_range(ch, start, end, end2), ''.join(extras))
 
+    # delimit passages within a book by comma (,) and books by semicolon (;)
     def parse_bible_refs(self, c):
         m = re.search(r'^https?://(?:www\.biblegateway\.com/passage/\?search=([^&]+)|biblehub\.com/(?:text/)?([^/]+)/([0-9]+)-([0-9]+))', urllib.parse.unquote(c))
         if not m:
