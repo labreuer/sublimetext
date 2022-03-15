@@ -1,4 +1,4 @@
-import sublime, sublime_plugin  
+import sublime, sublime_plugin
 import re
 import urllib.parse
 import os
@@ -106,6 +106,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             if is_markdown:
                 # a [x] b -> [a \[x\] b](url)
                 s = re.sub(r'(?<!\\)([\[\]])', '\\\\\\1', s)
+                url = re.sub(r'(?<!\\)([\)])', '\\\\\\1', url)
                 left = "[" + s
                 right = "](" + url + ")"
                 if len(s) == 0:

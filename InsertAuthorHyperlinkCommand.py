@@ -1,4 +1,6 @@
-import sublime, sublime_plugin  
+import sublime, sublime_plugin
+import re
+
   
 class InsertAuthorHyperlinkCommand(sublime_plugin.TextCommand):  
     def run(self, edit):
@@ -8,6 +10,7 @@ class InsertAuthorHyperlinkCommand(sublime_plugin.TextCommand):
 
         is_markdown = self.view.syntax() and self.view.syntax().name == 'Markdown'
         if is_markdown:
+            c = re.sub(r'(?<!\\)([\)])', '\\\\\\1', c)
             left = "["
             right = "](" + c + "): "
             if s != "":
