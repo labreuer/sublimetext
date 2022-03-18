@@ -64,24 +64,22 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         region = self.view.sel()[0]
         sel = self.view.substr(region)
         clip = sublime.get_clipboard()
-        wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', clip)
-        book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', clip)
-        url_m = re.search(r'^(https?://|#)', clip)
-        url = None
+        url = re.sub(r'\#:~:text=.*', '', clip)
+        wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
+        book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', url)
+        url_m = re.search(r'^(https?://|#)', url)
         get_index = None
         is_markdown = self.view.syntax() and self.view.syntax().name == 'Markdown'
         
         if len(sel) == 0 and wiki_m:
-            url = clip
             s = "WP: " + wiki_m.group(1).replace('_', ' ').replace('#', ' § ')#.replace('%27', '\'')
             s = urllib.parse.unquote(s)
-        elif len(sel) == 0 and self.parse_bible_refs(clip):
-            url = clip
-            s = self.parse_bible_refs(clip)
+        elif len(sel) == 0 and self.parse_bible_refs(url):
+            s = self.parse_bible_refs(url)
         elif url_m:
-            url = clip
             s = sel
         elif len(sel) == 0 and book_m:
+            url = None
             print(book_m.group(1))
             s = clip
             if not book_m.group(1):
@@ -89,6 +87,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             if is_markdown:
                 s = re.sub(r'<a href=["\']([^"\']+).*?>(.*?)</a>', '[\\2](\\1)', s)
         else:
+            url = None
             # the clipbord does not contain a hyperlink
             # ignore sel
             if is_markdown:
