@@ -16,6 +16,15 @@ class ConvertToMarkdownCommand(sublime_plugin.TextCommand):
                 return v
             v = r
 
+    def convert_blockquote(s):
+        def inside(m):
+            s = m.group(1)
+            # only add spaces after a non-empty line, and don't if the next line is empty
+            s = re.sub(r'((?<=\S)| +)(\r?\n)(?![\r\n])', '  \\2', s)
+            s = re.sub(r'^', '> ', s, flags=re.MULTILINE)
+            return s
+        return re.sub(r'<blockquote>(.*?)</blockquote>', inside, s, flags=re.DOTALL)
+
     def run(self, edit):
         region = self.view.sel()[0]
         s = self.view.substr(region)
@@ -33,7 +42,7 @@ class ConvertToMarkdownCommand(sublime_plugin.TextCommand):
 
         sub = self.view.substr(region)
         sub = re.sub(r'<a href=["\']([^"\']+).*?>(.*?)</a>', '[\\2](\\1)', sub)
-        sub = re.sub(r'<blockquote>(.*?)</blockquote>', '> \\1', sub, flags=re.DOTALL)
+        sub = ConvertToMarkdownCommand.convert_blockquote(sub)
         sub = re.sub(r'<i>(.*?)</i>', '_\\1_', sub)
         sub = re.sub(r'<b>(.*?)</b>', '**\\1**', sub)
         sub = re.sub(r'&nbsp;&nbsp;&nbsp;&nbsp; ?(\d+\.)', '\\1', sub)
