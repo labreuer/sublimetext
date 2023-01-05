@@ -2,7 +2,7 @@ import sublime, sublime_plugin
 import re
 import urllib.parse
 import os
-  
+
 class InsertHyperlinkCommand(sublime_plugin.TextCommand):
     def __init__(self, view):
         # each entry is a tuple with 1+ elements, 2nd element is abbreviation if it exists
@@ -53,10 +53,10 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         elif m.group(1):
             # deut12.32-13:5,17.14-20
             refs = re.findall(r'(?i)([1-3]?[a-z ]+)(?:(\d+)(?:[.:](\d+))?(?:-(\d+)(?:[.:](\d+))?)?)?(?:,([^;]+))?', m.group(1))
-            print(refs);
+            #print(refs);
 
         fixed = [self.format_bible_ref(b, ch, start, end, end2, comma) for (b, ch, start, end, end2, comma) in refs]
-        
+
         return fixed[0] if len(fixed) == 1 else ' and '.join([', '.join(fixed[:-1])] + [fixed[-1]])
 
 
@@ -83,7 +83,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             s = sel
         elif len(sel) == 0 and book_m:
             url = None
-            print(book_m.group(1))
+            #print(book_m.group(1))
             s = clip
             if not book_m.group(1):
                 s = s + "</a>"
@@ -104,11 +104,27 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
 
             s = left + right
 
+        if len(sel) == 0 and wiki_m:
+            if is_markdown:
+                href = '[{s}]({url})'.format(url=self.markdown_escape_url(url), s=self.markdown_escape_url_text(s))
+            else:
+                href = '<a href=\"{url}\">{s}</a>'.format(url=url, s=s)
+
+            href_region = sublime.Region(region.a - len(href), region.a)
+            if href == self.view.substr(href_region):
+                prefix_len = len("WP: ")
+                if len(re.findall(r'[A-Z]', s[prefix_len:])) == 1:
+                    s = s[prefix_len].lower() + s[prefix_len + 1:]
+                else:
+                    s = s[prefix_len:]
+                self.view.erase(edit, href_region)
+                region = self.view.sel()[0]
+
         if url:
             if is_markdown:
                 # a [x] b -> [a \[x\] b](url)
-                s = re.sub(r'(?<!\\)([\[\]])', '\\\\\\1', s)
-                url = re.sub(r'(?<!\\)([\)])', '\\\\\\1', url)
+                s = self.markdown_escape_url_text(s)
+                url = self.markdown_escape_url(url)
                 left = "[" + s
                 right = "](" + url + ")"
                 if len(s) == 0:
@@ -118,6 +134,11 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
                 right = s + "</a>"
                 if len(s) == 0:
                     get_index = lambda r: r.end() - len(right)
+
+            if len(sel) == 0 and wiki_m:
+                href = left + right
+                href_region = sublime.Region(region.a - len(href), region.a)
+
             s = left + right
 
         if get_index == None:
@@ -128,3 +149,24 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         self.view.sel().clear()
         idx = get_index(region)
         self.view.sel().add(sublime.Region(idx, idx))
+
+    def find_previous(self, rx):
+        cur = self.view.sel()[0]
+        x = []
+        p = self.view.find_all(rx, 0, "$1", x)
+        v = ""
+
+        # in case we're located after the last match
+        x.append(v)
+        p.append(cur)
+
+        for r, s in zip(p, x):
+            if r.a >= cur.a:
+                return v
+            v = s
+
+    def markdown_escape_url(self, url):
+        return re.sub(r'(?<!\\)([\)])', '\\\\\\1', url)
+
+    def markdown_escape_url_text(self, s):
+        return re.sub(r'(?<!\\)([\[\]])', '\\\\\\1', s)
