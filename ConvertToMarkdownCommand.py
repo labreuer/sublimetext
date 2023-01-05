@@ -23,6 +23,8 @@ class ConvertToMarkdownCommand(sublime_plugin.TextCommand):
             s = re.sub(r'((?<=\S)| +)(\r?\n)(?![\r\n])', '  \\2', s)
             s = re.sub(r'^', '> ', s, flags=re.MULTILINE)
             return s
+        s = re.sub(r'</p>\s*<p>', '\n\n', s)
+        s = re.sub(r'<p>(.*?)</p>', '\\1', s)
         return re.sub(r'<blockquote>(.*?)</blockquote>', inside, s, flags=re.DOTALL)
 
     def run(self, edit):

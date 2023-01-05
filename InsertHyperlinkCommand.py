@@ -66,6 +66,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         clip = sublime.get_clipboard()
         url = re.sub(r'\#:~:text=.*', '', clip)
         wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
+        dict_m = re.search(r'^https://www.dictionary.com/browse/(\w+)$', url)
         book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', url)
         url_m = re.search(r'^(https?://|#)', url)
         get_index = None
@@ -74,6 +75,8 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         if len(sel) == 0 and wiki_m:
             s = "WP: " + wiki_m.group(1).replace('_', ' ').replace('#', ' § ')#.replace('%27', '\'')
             s = urllib.parse.unquote(s)
+        elif len(sel) == 0 and dict_m:
+            s = "dictionary.com: **" + dict_m.group(1) + "**"
         elif len(sel) == 0 and self.parse_bible_refs(url):
             s = self.parse_bible_refs(url)
         elif url_m:
