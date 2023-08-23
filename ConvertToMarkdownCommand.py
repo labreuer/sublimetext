@@ -44,6 +44,7 @@ class ConvertToMarkdownCommand(sublime_plugin.TextCommand):
 
         sub = self.view.substr(region)
         sub = re.sub(r'<a href=["\']([^"\']+).*?>(.*?)</a>', '[\\2](\\1)', sub)
+        sub = re.sub(r'<br/>', '\n', sub)
         sub = ConvertToMarkdownCommand.convert_blockquote(sub)
         sub = re.sub(r'<i>(.*?)</i>', '_\\1_', sub)
         sub = re.sub(r'<b>(.*?)</b>', '**\\1**', sub)

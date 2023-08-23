@@ -37,14 +37,14 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
     def format_bible_ref(self, b, ch, start, end, end2, comma):
         book = self.find_bible_abbr(b)
         if comma:
-            extras = [', ' + self.format_range(ch, start, end, end2) for (ch, start, end, end2) in re.findall(r'(\d+)(?:[.:](\d+)(?:-(\d+)(?:[.:](\d+))?)?)?', comma)]
+            extras = [', ' + self.format_range(ch, start, end, end2) for (ch, start, end, end2) in re.findall(r'(\d+)(?:[.:](\d+))?(?:-(\d+)(?:[.:](\d+))?)?', comma)]
         else:
             extras = []
         return '{}&nbsp;{}{}'.format(book, self.format_range(ch, start, end, end2), ''.join(extras))
 
     # delimit passages within a book by comma (,) and books by semicolon (;)
     def parse_bible_refs(self, c):
-        m = re.search(r'^https?://(?:www\.biblegateway\.com/passage/\?search=([^&]+)|biblehub\.com/(?:text/)?([^/]+)/([0-9]+)-([0-9]+))', urllib.parse.unquote(c))
+        m = re.search(r'^https?://(?:www\.biblegateway\.com/passage/\?search=([^&]+)|biblehub\.com/(?:(?:text|interlinear|parallel)/)?([^/]+)/([0-9]+)-([0-9]+))', urllib.parse.unquote(c))
         if not m:
             return
         if m.group(2):
