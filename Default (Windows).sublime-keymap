@@ -43,5 +43,8 @@
 	},
 	{
 		"keys": ["ctrl+shift+r"], "command": "reverse_text_html"
-	}	
+	},
+	{
+		"keys": ["ctrl+alt+s"], "command": "insert_url_completion"
+	}
 ]

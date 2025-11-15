@@ -1,0 +1,505 @@
+{
+    "scope": "text.html.markdown",
+    "completions": [
+
+        {
+            "trigger": "genesis1.28",
+            "contents": "[Genesis&nbsp;1:28](https://biblehub.com/genesis/1-28.htm)",
+            "kind": "snippet",
+            "annotation": "Genesis 1:28"
+        },
+        {
+            "trigger": "gen1.31",
+            "contents": "[Gen&nbsp;1:31](https://biblehub.com/genesis/1-31.htm)",
+            "kind": "snippet",
+            "annotation": "Gen 1:31"
+        },
+        {
+            "trigger": "gen22.15-18",
+            "contents": "[Gen&nbsp;22:15–18](https://www.biblegateway.com/passage/?search=gen22.15-18&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Gen 22:15–18"
+        },
+        {
+            "trigger": "deut4.5-8 and mt5.13-16",
+            "contents": "[Deut&nbsp;4:5–8 and Mt&nbsp;5:13–16](https://www.biblegateway.com/passage/?search=deut4.5-8%3Bmt5.13-16&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Deut 4:5–8 and Mt 5:13–16"
+        },
+        {
+            "trigger": "deut12",
+            "contents": "[Deut&nbsp;12:32–13:5](https://www.biblegateway.com/passage/?search=deut12.32-13.5&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Deut 12:32–13:5"
+        },
+        {
+            "trigger": "deut17",
+            "contents": "[Deut&nbsp;17:14–20](https://www.biblegateway.com/passage/?search=deut17.14-20&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Deut 17:14–20"
+        },
+        {
+            "trigger": "deut30",
+            "contents": "[Deut&nbsp;30:11–14](https://www.biblegateway.com/passage/?search=deut30.11-14&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Deut 30:11–14"
+        },
+        {
+            "trigger": "lev25.39-55",
+            "contents": "[Lev&nbsp;25:39–55](https://www.biblegateway.com/passage/?search=lev25.39-55&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Lev 25:39–55"
+        },
+        {
+            "trigger": "lev25",
+            "contents": "[Lev&nbsp;25:44–46](https://www.biblegateway.com/passage/?search=lev25.44-46&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Lev 25:44–46"
+        },
+        {
+            "trigger": "job40.6–14",
+            "contents": "[Job&nbsp;40:6–14](https://www.biblegateway.com/passage/?search=job40.6-14&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Job 40:6–14"
+        },
+        {
+            "trigger": "1sam8",
+            "contents": "[1&nbsp;Sam&nbsp;8](https://www.biblegateway.com/passage/?search=1sam8&version=CSB)",
+            "kind": "snippet",
+            "annotation": "1 Sam 8"
+        },
+        {
+            "trigger": "king",
+            "contents": "\"a king to judge us the same as all the other nations have\"",
+            "kind": "snippet",
+        },
+        {
+            "trigger": "jer7",
+            "contents": "[Jer&nbsp;7:1–17](https://www.biblegateway.com/passage/?search=jer7.1-17&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "pray",
+            "contents": "“As for you, do not pray for these people. Do not offer a cry or a prayer on their behalf, and do not beg me, for I will not listen to you. Don’t you see how they behave in the cities of Judah and in the streets of Jerusalem?”",
+            "kind": "snippet",
+        },
+        {
+            "trigger": "jer18.5-12",
+            "contents": "[Jer&nbsp;18:5–12](https://www.biblegateway.com/passage/?search=jer18.5-12&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Jer 18:5–12"
+        },
+        {
+            "trigger": "jer34",
+            "contents": "[Jer&nbsp;34:8–17](https://www.biblegateway.com/passage/?search=jer34.8-17&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "1ki11-12",
+            "contents": "[1&nbsp;Ki&nbsp;11:26–40 and 1&nbsp;Ki&nbsp;12:20–24](https://www.biblegateway.com/passage/?search=1ki11.26-40;1ki12.20-24&version=CSB)",
+            "kind": "snippet",
+            "annotation": "1 Ki 11:26–40 and 1 Ki 12:20–24"
+        },
+        {
+            "trigger": "ezek22.29–31",
+            "contents": "[Ezek&nbsp;22:29–31](https://www.biblegateway.com/passage/?search=ezek22.29-31&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Ezek 22:29–31"
+        },
+        {
+            "trigger": "lk4",
+            "contents": "[Lk&nbsp;4:14–30](https://www.biblegateway.com/passage/?search=lk4.14-30&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "lk12.1-7",
+            "contents": "[Lk&nbsp;12:1–7](https://www.biblegateway.com/passage/?search=lk12.1-7&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Lk 12:1–7"
+        },
+        {
+            "trigger": "lk12.54-59",
+            "contents": "[Lk&nbsp;12:54–59](https://www.biblegateway.com/passage/?search=lk12.54-59&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Lk 12:54–59"
+        },
+        {
+            "trigger": "lk18.1-8",
+            "contents": "[Lk&nbsp;18:1–8](https://www.biblegateway.com/passage/?search=lk18.1-8&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "mt20.25-28",
+            "contents": "[Mt&nbsp;20:25–28](https://www.biblegateway.com/passage/?search=mt20.25-28&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Mt 20:25–28"
+        },
+        {
+            "trigger": "mt20.20–28",
+            "contents": "[Mt&nbsp;20:20–28](https://www.biblegateway.com/passage/?search=mt20.20-28&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Mt 20:20–28"
+        },
+        {
+            "trigger": "mt23.8-12",
+            "contents": "[Mt&nbsp;23:8–12](https://www.biblegateway.com/passage/?search=mt23.8-12&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Mt 23:8–12"
+        },
+        {
+            "trigger": "gen2.8",
+            "contents": "[Gen&nbsp;2:18](https://biblehub.com/interlinear/genesis/2-18.htm)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Is&nbsp;55:6–9",
+            "contents": "[Is&nbsp;55:6–9](https://www.biblegateway.com/passage/?search=is55.6-9&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "is58",
+            "contents": "[Isaiah&nbsp;58](https://www.biblegateway.com/passage/?search=is58&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Isaiah 58"
+        },
+
+        {
+            "trigger": "Moses",
+            "contents": "[Ex&nbsp;32:9–14, Num&nbsp;14:11–20 and Num&nbsp;16:19–24](https://www.biblegateway.com/passage/?search=Ex32.9-14;Num14.11-20;Num16.19-24&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "thrice",
+            "contents": "[thrice](https://www.biblegateway.com/passage/?search=Ex32.9-14;Num14.11-20;Num16.19-24&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "more humble",
+            "contents": "[\"more humble than anyone else on the face of the earth\"](https://biblehub.com/numbers/12-3.htm)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "wrt Sodom",
+            "contents": "[wrt Sodom](https://www.biblegateway.com/passage/?search=gen18.16-33&version=CSB)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "ezer",
+            "contents": "[_ʿezer_](https://biblehub.com/hebrew/strongs_5828.htm)",
+            "kind": "snippet",
+            "annotation": "ʿezer"
+        },
+        {
+            "trigger": "diakonos",
+            "contents": "[_diakonos_](https://biblehub.com/interlinear/matthew/20-28.htm)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "heart",
+            "contents": "[heart](https://www.jewishencyclopedia.com/articles/7436-heart)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "hearts",
+            "contents": "[hearts](https://www.jewishencyclopedia.com/articles/7436-heart)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "agape",
+            "contents": "[_agape_](https://en.wikipedia.org/wiki/Agape)",
+            "kind": "snippet"
+        },
+
+        {
+            "trigger": "Sources of the Self",
+            "contents": "Charles Taylor 1989 [Sources of the Self](https://en.wikipedia.org/wiki/Sources_of_the_Self)",
+            "kind": "snippet",
+            "annotation": "Sources of the Self"
+        },
+        {
+            "trigger": "Democracy for Realists",
+            "contents": "Christopher H. Achen and Larry M. Bartels 2016 [Democracy for Realists: Why Elections Do Not Produce Responsive Government](https://press.princeton.edu/books/hardcover/9780691169446/democracy-for-realists)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Upstream",
+            "contents": "[Upstream](https://www.simonandschuster.com/books/Upstream/Dan-Heath/9781982134723)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Leviathan",
+            "contents": "[Leviathan](https://en.wikipedia.org/wiki/Leviathan_(Hobbes_book\\))",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Beginning of Infinity",
+            "contents": "[Beginning of Infinity](https://en.wikipedia.org/wiki/The_Beginning_of_Infinity)",
+            "kind": "snippet"
+        },
+
+
+        {
+            "trigger": "pistis",
+            "contents": "[πίστις (_pistis_)](https://biblehub.com/greek/4102.htm)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "pistis and pisteúō",
+            "contents": "[πίστις (_pistis_)](https://biblehub.com/greek/4102.htm) and [πιστεύω (_pisteúō_)](https://biblehub.com/greek/4100.htm)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "metanoia",
+            "contents": "[_metanoia_](https://en.wikipedia.org/wiki/Metanoia_%28theology%29)",
+            "kind": "snippet"
+        },
+
+        {
+            "trigger": "fact/value dichotomy",
+            "contents": "[fact/&#8203;value dichotomy](https://en.wikipedia.org/wiki/Fact%E2%80%93value_distinction)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "is ⇏ ought",
+            "contents": "[_is_ ⇏ _ought_](https://en.wikipedia.org/wiki/Is%E2%80%93ought_problem)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "ought implies can",
+            "contents": "[ought implies can](https://en.wikipedia.org/wiki/Ought_implies_can)",
+            "kind": "snippet",
+            "annotation": "ought implies can"
+        },
+        {
+            "trigger": "harm principle",
+            "contents": "[harm principle](https://en.wikipedia.org/wiki/Harm_principle)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "backdoor",
+            "contents": "[backdoor](https://en.wikipedia.org/wiki/Backdoor_(computing\\))",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "scientia potentia est",
+            "contents": "[_scientia potentia est_](https://en.wikipedia.org/wiki/Scientia_potentia_est)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "theory-ladenness of observation",
+            "contents": "[theory-ladenness of observation](https://plato.stanford.edu/entries/science-theory-observation/)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "methodological naturalism",
+            "contents": "[methodological naturalism](https://rationalwiki.org/wiki/Methodological_naturalism)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Hempel's dilemma",
+            "contents": "[Hempel's dilemma](https://plato.stanford.edu/entries/physicalism/#HempDile)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "operationalize",
+            "contents": "[operationalize](https://en.wikipedia.org/wiki/Operationalization)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Interplanetary Superhighway",
+            "contents": "[Interplanetary Superhighway](https://en.wikipedia.org/wiki/Interplanetary_Transport_Network)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Philolaus",
+            "contents": "[Philolaus](https://en.wikipedia.org/wiki/Philolaus)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "The Great Ptolemaic Smackdown",
+            "contents": "[The Great Ptolemaic Smackdown](https://tofspot.blogspot.com/2013/08/the-great-ptolemaic-smackdown.html)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "1611",
+            "contents": "[1611](https://en.wikipedia.org/wiki/King_James_Version)",
+            "kind": "snippet",
+            "annotation": "KJV 1611"
+        },
+        {
+            "trigger": "René Girard",
+            "contents": "[René Girard](https://iep.utm.edu/girard/)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "just-world hypothesis",
+            "contents": "[just-world hypothesis](https://en.wikipedia.org/wiki/Just-world_hypothesis)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "theosis",
+            "contents": "[_theosis_](https://en.wikipedia.org/wiki/Theosis_(Eastern_Christian_theology\\))",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "theosis / divinization",
+            "contents": "[_theosis_](https://en.wikipedia.org/wiki/Theosis_(Eastern_Christian_theology\\)) / [divinization](https://en.wikipedia.org/wiki/Divinization_(Christian\\))",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "kenosis",
+            "contents": "[_kenosis_](https://en.wikipedia.org/wiki/Kenosis)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "middle knowledge",
+            "contents": "[middle knowledge](https://iep.utm.edu/middlekn/)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "divine accommodation",
+            "contents": "[divine accommodation](https://en.wikipedia.org/wiki/Accommodation_(religion\\))",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "explanatory power",
+            "contents": "[explanatory power](https://en.wikipedia.org/wiki/Explanatory_power)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "AI winter",
+            "contents": "[AI winter](https://en.wikipedia.org/wiki/AI_winter)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "GOFAI",
+            "contents": "[GOFAI](https://en.wikipedia.org/wiki/GOFAI)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "expert systems",
+            "contents": "[expert systems](https://en.wikipedia.org/wiki/Expert_system)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Kriegsspiel",
+            "contents": "[Kriegsspiel](https://en.wikipedia.org/wiki/Kriegsspiel)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "epistemic coercion",
+            "contents": "[epistemic coercion](https://www.journals.uchicago.edu/doi/pdf/10.1086/713146)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "classical elements",
+            "contents": "[classical elements](https://en.wikipedia.org/wiki/Classical_element)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "phlogiston",
+            "contents": "[phlogiston](https://en.wikipedia.org/wiki/Phlogiston_theory)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "caloric",
+            "contents": "[caloric](https://en.wikipedia.org/wiki/Caloric_theory)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Sapere aude!",
+            "contents": "[_Sapere aude!_](https://en.wikipedia.org/wiki/Sapere_aude)",
+            "kind": "snippet",
+            "annotation": "_Sapere aude!_"
+        },
+        {
+            "trigger": "immunity ruling",
+            "contents": "[immunity ruling](https://en.wikipedia.org/wiki/Trump_v._United_States)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Citizens United",
+            "contents": "[Citizens United v. FEC](https://en.wikipedia.org/wiki/Citizens_United_v._FEC)",
+            "kind": "snippet",
+            "annotation": "Citizens United v. FEC"
+        },
+        {
+            "trigger": "Laplace's demon",
+            "contents": "[Laplace's demon](https://en.wikipedia.org/wiki/Laplace%27s_demon)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "f=ma",
+            "contents": "*F*&nbsp;=&nbsp;*ma*",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Foundation series",
+            "contents": "[_Foundation_ series](https://en.wikipedia.org/wiki/Foundation_(book_series\\))",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "psychohistory",
+            "contents": "[psychohistory](https://asimov.fandom.com/wiki/Psychohistory)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "The Reason Education Sucks",
+            "contents": "[The Reason Education Sucks](https://www.youtube.com/watch?v=ILQepXUhJ98)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "child slaves mine some of our cobalt",
+            "contents": "[child slaves mine some of our cobalt](https://www.theguardian.com/environment/2021/jan/03/child-labour-toxic-leaks-the-price-we-could-pay-for-a-greener-future)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "divide & conquer",
+            "contents": "[divide & conquer](https://en.wikipedia.org/wiki/Divide_and_conquer)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "SEP: The Correspondence Theory of Truth § No Independent Access to Reality",
+            "contents": "[SEP: The Correspondence Theory of Truth § No Independent Access to Reality](https://plato.stanford.edu/entries/truth-correspondence/#9.2)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "The Rules for Rulers",
+            "contents": "@CGP Grey's [The Rules for Rulers](https://www.youtube.com/watch?v=rStL7niR7gs)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "social contract theory",
+            "contents": "[social contract theory](https://en.wikipedia.org/wiki/Social_contract)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "MKUltra",
+            "contents": "[MKUltra](https://en.wikipedia.org/wiki/MKUltra)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Narrative Networks",
+            "contents": "[Narrative Networks](https://phys.org/news/2011-10-darpa-master-propaganda-narrative-networks.html)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "NSPM 7: Countering Domestic Terrorism and Organized Political Violence",
+            "contents": "[NSPM 7: Countering Domestic Terrorism and Organized Political Violence](https://www.whitehouse.gov/presidential-actions/2025/09/countering-domestic-terrorism-and-organized-political-violence/)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "domestic terrorism",
+            "contents": "[18 U.S. Code § 2331](https://www.law.cornell.edu/uscode/text/18/2331)(5)",
+            "kind": "snippet",
+            "annotation": "18 U.S. Code § 2331(5)"
+        },
+
+        {
+            "trigger": "mysterious",
+            "contents": "[If \"God works in mysterious ways\" is verboten, so is \"God could work in mysterious ways\".](https://www.reddit.com/r/DebateReligion/comments/1853dwo/if_god_works_in_mysterious_ways_is_verboten_so_is/)",
+            "kind": "snippet",
+            "annotation": "If \"God works in mysterious ways\" is verboten, so is \"God could work in mysterious ways\"."
+        }
+    ]
+}
