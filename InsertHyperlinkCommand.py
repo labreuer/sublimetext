@@ -69,7 +69,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
         dict_m = re.search(r'^https://www.dictionary.com/browse/(\w+)$', url)
         book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', url)
-        url_m = re.search(r'^(https?://|#)', url)
+        url_m = re.search(r'^(https?://|#|/)', url)
         get_index = None
         is_markdown = self.view.syntax() and self.view.syntax().name == 'Markdown'
         
