@@ -19,7 +19,7 @@ Job
 Psalms, Ps
 Proverbs, Prov
 Ecclesiastes, Eccl
-Song of Solomon
+Song of Solomon, Songs
 Isaiah, Is
 Jeremiah, Jer
 Lamentations, Lam

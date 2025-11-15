@@ -44,7 +44,8 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
 
     # delimit passages within a book by comma (,) and books by semicolon (;)
     def parse_bible_refs(self, c):
-        m = re.search(r'^https?://(?:www\.biblegateway\.com/passage/\?search=([^&]+)|biblehub\.com/(?:(?:text|interlinear|parallel)/)?([^/]+)/([0-9]+)-([0-9]+))', urllib.parse.unquote(c))
+        m = re.search(r'^https?://(?:(?:www\.biblegateway\.com/passage/\?search=|(?:www\.)?blueletterbible\.org/tools/MultiVerse\.cfm\?mvText=)([^&]+)|biblehub\.com/(?:(?:text|interlinear|parallel)/)?([^/]+)/([0-9]+)-([0-9]+))', urllib.parse.unquote(c))
+
         if not m:
             return
         if m.group(2):
