@@ -60,6 +60,22 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
 
         return fixed[0] if len(fixed) == 1 else ' and '.join([', '.join(fixed[:-1])] + [fixed[-1]])
 
+    def format_url(self, s, url, is_markdown):
+        if is_markdown:
+            return f"[{self.markdown_escape_url_text(s)}]({self.markdown_escape_url(url)})"
+        else:
+            return f'<a href="{url}">{s}</a>'
+
+    def rotate_preceding(self, url, options, is_markdown, edit, region):
+        for i, opt in enumerate(options):
+            href = self.format_url(opt, url, is_markdown)
+            href_region = sublime.Region(region.a - len(href), region.a)
+            if href == self.view.substr(href_region):
+                s = options[(i + 1) % len(options)]
+                self.view.erase(edit, href_region)
+                return (s, self.view.sel()[0])
+        
+        return None
 
     def run(self, edit):
         region = self.view.sel()[0]
@@ -106,37 +122,24 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
 
             s = left + right
 
-        format_url = lambda text=s: (
-            f"[{self.markdown_escape_url_text(text)}]({self.markdown_escape_url(url)})"
-            if is_markdown
-            else f'<a href="{url}">{text}</a>'
-        )
-
         if len(sel) == 0 and wiki_m:
-            href = format_url(s)
+            prefix_len = len("WP: ")
+            if len(re.findall(r'[A-Z]', s[prefix_len:])) == 1:
+                no_prefix = s[prefix_len].lower() + s[prefix_len + 1:]
+            else:
+                no_prefix = s[prefix_len:]
 
-            href_region = sublime.Region(region.a - len(href), region.a)
-            if href == self.view.substr(href_region):
-                prefix_len = len("WP: ")
-                if len(re.findall(r'[A-Z]', s[prefix_len:])) == 1:
-                    s = s[prefix_len].lower() + s[prefix_len + 1:]
-                else:
-                    s = s[prefix_len:]
-                self.view.erase(edit, href_region)
-                region = self.view.sel()[0]
+            options = [s, no_prefix]
+            tuple = self.rotate_preceding(url, options, is_markdown, edit, region)
+            if tuple:
+                (s, region) = tuple
 
         if len(sel) == 0 and bibleref:
             full = self.parse_bible_refs(url, True)
             options = [s, full]
-
-            for i, opt in enumerate(options):
-                href = format_url(opt)
-                href_region = sublime.Region(region.a - len(href), region.a)
-                if href == self.view.substr(href_region):
-                    s = options[(i + 1) % len(options)]
-                    self.view.erase(edit, href_region)
-                    region = self.view.sel()[0]
-                    break
+            tuple = self.rotate_preceding(url, options, is_markdown, edit, region)
+            if tuple:
+                (s, region) = tuple
 
         if url:
             if is_markdown:
