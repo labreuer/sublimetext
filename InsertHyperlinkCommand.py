@@ -14,12 +14,12 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         with open(path + '/bible_abbr.txt', 'r') as f:
             return [s.replace('\n','').split(', ') for s in f.readlines()]
 
-    def find_bible_abbr(self, abbr):
+    def find_bible_abbr(self, abbr, full=False):
         clean = lambda s: s.replace(' ','').replace('_', '').lower()
         # remove space and underscore from '1 John', '1_Corinthians', etc.
         it = filter(lambda b: list(filter(lambda x: clean(x).startswith(clean(abbr)), b)), self.bible_abbrs)
         book = next(it)
-        s = book[1] if len(book) >= 2 else book[0]
+        s = book[1] if len(book) >= 2 and not full else book[0]
         return re.sub(r'^([1-3]) ', '\\1&nbsp;', s)
 
     def format_range(self, ch, start, end, end2):
@@ -34,8 +34,8 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         else:
             return '{}'.format(ch)
 
-    def format_bible_ref(self, b, ch, start, end, end2, comma):
-        book = self.find_bible_abbr(b)
+    def format_bible_ref(self, b, ch, start, end, end2, comma, full=False):
+        book = self.find_bible_abbr(b, full)
         if comma:
             extras = [', ' + self.format_range(ch, start, end, end2) for (ch, start, end, end2) in re.findall(r'(\d+)(?:[.:](\d+))?(?:-(\d+)(?:[.:](\d+))?)?', comma)]
         else:
@@ -43,7 +43,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         return '{}&nbsp;{}{}'.format(book, self.format_range(ch, start, end, end2), ''.join(extras))
 
     # delimit passages within a book by comma (,) and books by semicolon (;)
-    def parse_bible_refs(self, c):
+    def parse_bible_refs(self, c, full=False):
         m = re.search(r'^https?://(?:(?:www\.biblegateway\.com/passage/\?search=|(?:www\.)?blueletterbible\.org/tools/MultiVerse\.cfm\?mvText=)([^&]+)|biblehub\.com/(?:(?:text|interlinear|parallel)/)?([^/]+)/([0-9]+)-([0-9]+))', urllib.parse.unquote(c))
 
         if not m:
@@ -56,7 +56,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             refs = re.findall(r'(?i)([1-3]?[a-z ]+)(?:(\d+)(?:[.:](\d+))?(?:-(\d+)(?:[.:](\d+))?)?)?(?:,([^;]+))?', m.group(1))
             #print(refs);
 
-        fixed = [self.format_bible_ref(b, ch, start, end, end2, comma) for (b, ch, start, end, end2, comma) in refs]
+        fixed = [self.format_bible_ref(b, ch, start, end, end2, comma, full) for (b, ch, start, end, end2, comma) in refs]
 
         return fixed[0] if len(fixed) == 1 else ' and '.join([', '.join(fixed[:-1])] + [fixed[-1]])
 
@@ -66,6 +66,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         sel = self.view.substr(region)
         clip = sublime.get_clipboard()
         url = re.sub(r'\#:~:text=.*', '', clip)
+        bibleref = self.parse_bible_refs(url) if len(sel) == 0 else None
         wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
         dict_m = re.search(r'^https://www.dictionary.com/browse/(\w+)$', url)
         book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', url)
@@ -78,8 +79,8 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             s = urllib.parse.unquote(s)
         elif len(sel) == 0 and dict_m:
             s = "dictionary.com: **" + dict_m.group(1) + "**"
-        elif len(sel) == 0 and self.parse_bible_refs(url):
-            s = self.parse_bible_refs(url)
+        elif bibleref:
+            s = bibleref
         elif url_m:
             s = sel
         elif len(sel) == 0 and book_m:
@@ -105,11 +106,14 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
 
             s = left + right
 
+        format_url = lambda text=s: (
+            f"[{self.markdown_escape_url_text(text)}]({self.markdown_escape_url(url)})"
+            if is_markdown
+            else f'<a href="{url}">{text}</a>'
+        )
+
         if len(sel) == 0 and wiki_m:
-            if is_markdown:
-                href = '[{s}]({url})'.format(url=self.markdown_escape_url(url), s=self.markdown_escape_url_text(s))
-            else:
-                href = '<a href=\"{url}\">{s}</a>'.format(url=url, s=s)
+            href = format_url(s)
 
             href_region = sublime.Region(region.a - len(href), region.a)
             if href == self.view.substr(href_region):
@@ -120,6 +124,19 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
                     s = s[prefix_len:]
                 self.view.erase(edit, href_region)
                 region = self.view.sel()[0]
+
+        if len(sel) == 0 and bibleref:
+            full = self.parse_bible_refs(url, True)
+            options = [s, full]
+
+            for i, opt in enumerate(options):
+                href = format_url(opt)
+                href_region = sublime.Region(region.a - len(href), region.a)
+                if href == self.view.substr(href_region):
+                    s = options[(i + 1) % len(options)]
+                    self.view.erase(edit, href_region)
+                    region = self.view.sel()[0]
+                    break
 
         if url:
             if is_markdown:
