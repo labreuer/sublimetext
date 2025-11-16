@@ -80,7 +80,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         region = self.view.sel()[0]
         sel = self.view.substr(region)
-        clip = sublime.get_clipboard()
+        clip = sublime.get_clipboard().strip()
         url = re.sub(r'\#:~:text=.*', '', clip)
         bibleref = self.parse_bible_refs(url) if len(sel) == 0 else None
         wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
