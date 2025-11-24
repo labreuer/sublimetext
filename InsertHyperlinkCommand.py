@@ -123,13 +123,14 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             s = left + right
 
         if len(sel) == 0 and wiki_m:
+            options = [s]
             prefix_len = len("WP: ")
             if len(re.findall(r'[A-Z]', s[prefix_len:])) == 1:
-                no_prefix = s[prefix_len].lower() + s[prefix_len + 1:]
-            else:
-                no_prefix = s[prefix_len:]
+                options.append(s[prefix_len].lower() + s[prefix_len + 1:])
+            options.append(s[prefix_len:])
+            if s.find('(') >= 0:
+                options.extend(re.sub(r" ?\(.*\)", "", o) for o in options[1:])
 
-            options = [s, no_prefix]
             tuple = self.rotate_preceding(url, options, is_markdown, edit, region)
             if tuple:
                 (s, region) = tuple
