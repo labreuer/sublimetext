@@ -16,7 +16,7 @@ Ezra
 Nehemiah, Neh
 Esther, Esth
 Job
-Psalms, Ps
+Psalm, Ps, Psalms
 Proverbs, Prov
 Ecclesiastes, Eccl
 Song of Solomon, Songs

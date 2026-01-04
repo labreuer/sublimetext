@@ -435,7 +435,7 @@
         },
         {
             "trigger": "Foundation series",
-            "contents": "[_Foundation_ series](https://en.wikipedia.org/wiki/Foundation_(book_series\\))",
+            "contents": "[_Foundation_ series](https://en.wikipedia.org/wiki/Foundation_(novel_series\\))",
             "kind": "snippet"
         },
         {
@@ -451,6 +451,11 @@
         {
             "trigger": "child slaves mine some of our cobalt",
             "contents": "[child slaves mine some of our cobalt](https://www.theguardian.com/environment/2021/jan/03/child-labour-toxic-leaks-the-price-we-could-pay-for-a-greener-future)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "2012",
+            "contents": "[in 2012](/r/DebateReligion/comments/1cr86e5/the_fact_that_modern_day_interpretations_of/l3xa3jd/), the \"developed\" world extracted \\$5 trillion in goods and services from the \"developing\" world, sending a paltry \\$3 trillion back",
             "kind": "snippet"
         },
         {
