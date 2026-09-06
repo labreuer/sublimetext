@@ -21,6 +21,12 @@
             "annotation": "Gen 22:15–18"
         },
         {
+            "trigger": "deut4.5-8",
+            "contents": "[Deut&nbsp;4:5–8](https://www.biblegateway.com/passage/?search=deut4.5-8&version=CSB)",
+            "kind": "snippet",
+            "annotation": "Deut 4:5–8"
+        },
+        {
             "trigger": "deut4.5-8 and mt5.13-16",
             "contents": "[Deut&nbsp;4:5–8 and Mt&nbsp;5:13–16](https://www.biblegateway.com/passage/?search=deut4.5-8%3Bmt5.13-16&version=CSB)",
             "kind": "snippet",
@@ -161,6 +167,11 @@
             "contents": "[Isaiah&nbsp;58](https://www.biblegateway.com/passage/?search=is58&version=CSB)",
             "kind": "snippet",
             "annotation": "Isaiah 58"
+        },
+        {
+            "trigger": "asked",
+            "contents": "[asked](https://www.biblegateway.com/passage/?search=acts1.1-11&version=CSB), “Lord, are you restoring the kingdom to Israel at this time?”",
+            "kind": "snippet"
         },
 
         {
@@ -327,6 +338,11 @@
             "annotation": "KJV 1611"
         },
         {
+            "trigger": "2015",
+            "contents": "[2015](https://global.oup.com/academic/product/roman-faith-and-christian-faith-9780198724148?cc=ca&lang=en&)",
+            "kind": "snippet"
+        },
+        {
             "trigger": "René Girard",
             "contents": "[René Girard](https://iep.utm.edu/girard/)",
             "kind": "snippet"
@@ -407,6 +423,11 @@
             "kind": "snippet"
         },
         {
+            "trigger": "aether",
+            "contents": "[aether](https://en.wikipedia.org/wiki/Aether_theories)",
+            "kind": "snippet"
+        },
+        {
             "trigger": "Sapere aude!",
             "contents": "[_Sapere aude!_](https://en.wikipedia.org/wiki/Sapere_aude)",
             "kind": "snippet",
@@ -419,7 +440,7 @@
         },
         {
             "trigger": "Citizens United",
-            "contents": "[Citizens United v. FEC](https://en.wikipedia.org/wiki/Citizens_United_v._FEC)",
+            "contents": "[_Citizens United v. FEC_](https://en.wikipedia.org/wiki/Citizens_United_v._FEC)",
             "kind": "snippet",
             "annotation": "Citizens United v. FEC"
         },
@@ -499,12 +520,43 @@
             "kind": "snippet",
             "annotation": "18 U.S. Code § 2331(5)"
         },
+        {
+            "trigger": "collective action problem",
+            "contents": "[collective action problem](https://en.wikipedia.org/wiki/Collective_action_problem)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "human & social nature/&#8203;construction",
+            "contents": "human & social nature/&#8203;construction",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Upton Sinclair",
+            "contents": "Upton Sinclair's \"Is difficult to get a man to understand something when his salary depends upon his not understanding it.\"",
+            "kind": "snippet"
+        },
 
         {
             "trigger": "mysterious",
             "contents": "[If \"God works in mysterious ways\" is verboten, so is \"God could work in mysterious ways\".](https://www.reddit.com/r/DebateReligion/comments/1853dwo/if_god_works_in_mysterious_ways_is_verboten_so_is/)",
             "kind": "snippet",
             "annotation": "If \"God works in mysterious ways\" is verboten, so is \"God could work in mysterious ways\"."
+        },
+        {
+            "trigger": "status inversion",
+            "contents": "[status inversion](/r/DebateReligion/comments/1objys1/the_bible_contains_wisdom_superior_to_available/)",
+            "kind": "snippet"
+        },
+        {
+            "trigger": "Bible contains wisdom superior to available alternatives",
+            "contents": "[The Bible contains wisdom superior to available alternatives: the greater ought to serve the lesser](https://www.reddit.com/r/DebateReligion/comments/1objys1/the_bible_contains_wisdom_superior_to_available/)",
+            "kind": "snippet",
+            "annotation": "The Bible contains wisdom superior to available alternatives: the greater ought to serve the lesser"
+        },
+        {
+            "trigger": "methods accessible to all",
+            "contents": "[\"methods accessible to all\"](/r/DebateAnAtheist/comments/17d7d8k/is_the_turing_test_objective/)",
+            "kind": "snippet"
         }
     ]
 }
