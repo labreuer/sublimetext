@@ -104,6 +104,10 @@
 		"underdetermination",
 		"hermeneutics",
 		"falsifiability",
+		"nitrous",
+		"militaries",
+		"surveil",
+		"homeorhesis",
 	],
 	"auto_match_enabled": false,
 	/*"font_size": 9,*/
@@ -133,4 +137,5 @@
 		"synecdoche"
 	],
 	"font_size": 9,
+	"index_files": true,
 }
