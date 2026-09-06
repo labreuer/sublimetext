@@ -55,7 +55,7 @@ class ConvertToMarkdownCommand(sublime_plugin.TextCommand):
             s = re.sub(r'(?m)(?<!\s) *$', '  ', s)
             s = re.sub(r'(?m) +(?=\n\n)', '', s)
             s = re.sub(r'(?m)^', '> ', s)
-            s = re.sub(r'Yahweh|the LORD|GOD', 'YHWH', s)
+            #s = re.sub(r'Yahweh|the LORD|GOD', 'YHWH', s)
             s = s.strip()
             sub = s;
         else:
