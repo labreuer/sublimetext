@@ -2,6 +2,8 @@ import sublime, sublime_plugin
 import re
 import urllib.parse
 import os
+#from sep_markdown_link import fetch_sep_link
+
 
 class InsertHyperlinkCommand(sublime_plugin.TextCommand):
     def __init__(self, view):
@@ -86,6 +88,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
         dict_m = re.search(r'^https://www.merriam-webster.com/dictionary/(\w+)$', url)
         book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', url)
+        sep_m = re.search(r'^https://plato.stanford.edu/entries/', url)
         url_m = re.search(r'^(https?://|#|/)', url)
         get_index = None
         is_markdown = self.view.syntax() and self.view.syntax().name == 'Markdown'
@@ -95,6 +98,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             s = urllib.parse.unquote(s)
         elif len(sel) == 0 and dict_m:
             s = "Merriam-Webster: **" + dict_m.group(1) + "**"
+        #elif len(sel) == 0 and sep_m:
         elif bibleref:
             s = bibleref
         elif url_m:

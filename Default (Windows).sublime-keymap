@@ -46,5 +46,8 @@
 	},
 	{
 		"keys": ["ctrl+alt+s"], "command": "insert_url_completion"
+	},
+	{
+		"keys": ["ctrl+shift+l"], "command": "sep_markdown_link"
 	}
 ]
