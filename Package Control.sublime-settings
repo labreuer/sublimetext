@@ -6,12 +6,8 @@
 	"installed_packages":
 	[
 		"AutoHotkey",
-		"GotoDocumentation",
-		"Package Control",
-		"PHP Companion",
-		"PHP Modern",
-		"PHP Syntax Checker",
 		"PowerShell",
+		"Pretty JSON",
 		"RemoteSubl"
 	],
 }
