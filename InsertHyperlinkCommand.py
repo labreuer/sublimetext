@@ -84,7 +84,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         url = re.sub(r'\#:~:text=.*', '', clip)
         bibleref = self.parse_bible_refs(url) if len(sel) == 0 else None
         wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
-        dict_m = re.search(r'^https://www.dictionary.com/browse/(\w+)$', url)
+        dict_m = re.search(r'^https://www.merriam-webster.com/dictionary/(\w+)$', url)
         book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', url)
         url_m = re.search(r'^(https?://|#|/)', url)
         get_index = None
@@ -94,7 +94,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
             s = "WP: " + wiki_m.group(1).replace('_', ' ').replace('#', ' § ')#.replace('%27', '\'')
             s = urllib.parse.unquote(s)
         elif len(sel) == 0 and dict_m:
-            s = "dictionary.com: **" + dict_m.group(1) + "**"
+            s = "Merriam-Webster: **" + dict_m.group(1) + "**"
         elif bibleref:
             s = bibleref
         elif url_m:
