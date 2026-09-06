@@ -102,8 +102,6 @@ class MarkdownLineCompletions(sublime_plugin.EventListener):
                         if not new_completion:
                             continue;
 
-                        print(line)
-
                         normalized_line = line.casefold()
 
                         # Do not duplicate:
@@ -114,8 +112,6 @@ class MarkdownLineCompletions(sublime_plugin.EventListener):
                             or normalized_line in seen_lines
                         ):
                             continue
-
-                        print ('      +')
 
                         seen_lines.add(normalized_line)
                         completions.append((searchable_text, line))

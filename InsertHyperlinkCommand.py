@@ -2,7 +2,7 @@ import sublime, sublime_plugin
 import re
 import urllib.parse
 import os
-#from sep_markdown_link import fetch_sep_link
+#from SepMarkdownLinkCommand import fetch_sep_link
 
 
 class InsertHyperlinkCommand(sublime_plugin.TextCommand):
