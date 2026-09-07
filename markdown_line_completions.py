@@ -4,10 +4,12 @@ import sublime
 import sublime_plugin
 
 
-# Populate this with absolute file paths.
+# Paths are passed through os.path.expanduser / os.path.expandvars, so "~"
+# resolves to the home directory on both Linux (/home/<user>) and Windows
+# (C:\Users\<user>). Forward slashes work on both platforms.
 SEARCH_FILES = [
-    r"C:\Users\labreuer\Dropbox\snippets.md",
-    r"C:\Users\labreuer\Dropbox\books.md",
+    "~/Dropbox/snippets.md",
+    "~/Dropbox/books.md",
 ]
 
 COMPLETIONS_RESOURCE = "Packages/User/Markdown.sublime-completions"
