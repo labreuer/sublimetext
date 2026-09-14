@@ -6,8 +6,9 @@
 	"installed_packages":
 	[
 		"AutoHotkey",
+		"Package Control",
 		"PowerShell",
 		"Pretty JSON",
-		"RemoteSubl"
+		"RemoteSubl",
 	],
 }
