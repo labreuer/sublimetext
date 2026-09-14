@@ -84,7 +84,7 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
         sel = self.view.substr(region)
         clip = sublime.get_clipboard().strip()
         url = re.sub(r'\#:~:text=.*', '', clip)
-        bibleref = self.parse_bible_refs(url) if len(sel) == 0 else None
+        bibleref = self.parse_bible_refs(url, True) if len(sel) == 0 else None
         wiki_m = re.search(r'^https?://en.wikipedia.org/wiki/(.*)', url)
         dict_m = re.search(r'^https://www.merriam-webster.com/dictionary/(\w+)$', url)
         book_m = re.search(r'^[^<>]*<a href="[^"]+">[^<]+(</a>)?$', url)
@@ -140,8 +140,8 @@ class InsertHyperlinkCommand(sublime_plugin.TextCommand):
                 (s, region) = tuple
 
         if len(sel) == 0 and bibleref:
-            full = self.parse_bible_refs(url, True)
-            options = [s, full]
+            short = self.parse_bible_refs(url, False)
+            options = [s, short]
             tuple = self.rotate_preceding(url, options, is_markdown, edit, region)
             if tuple:
                 (s, region) = tuple
